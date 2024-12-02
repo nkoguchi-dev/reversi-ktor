@@ -1,4 +1,4 @@
-package com.example
+package org.koppepan
 
 import io.ktor.server.application.*
 
