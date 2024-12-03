@@ -1,0 +1,31 @@
+services:
+  backend:
+    build:
+      context: ./backend
+    container_name: backend
+    expose:
+      - "8080"
+    ports:
+      - "18080:8080"
+    volumes:
+      - type: bind
+        source: ./backend/gradle
+        target: /backend/gradle
+        read_only: true
+      - type: bind
+        source: ./backend/src
+        target: /backend/src
+        read_only: true
+      - type: bind
+        source: ./backend/build.gradle.kts
+        target: /backend/build.gradle.kts
+        read_only: true
+      - type: bind
+        source: ./backend/settings.gradle.kts
+        target: /backend/settings.gradle.kts
+        read_only: true
+      - type: bind
+        source: ./backend/gradlew
+        target: /backend/gradlew
+        read_only: true
+    working_dir: /backend
